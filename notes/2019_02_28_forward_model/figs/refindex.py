@@ -1,6 +1,6 @@
 import numpy as np
 import pandas as pd
-import ffastpy as ff
+import phase.ffast as ff
 import matplotlib.pyplot as plt
 
 
@@ -13,8 +13,8 @@ def set_delta_beta(elem):
     elem['beta'] = elem.na * re * (elem.lam * 1e-9)**2 * elem.f2 / (2*np.pi)
 
 
-Os = ff.load_data('Os')
-U = ff.load_data('U')
+Os = ff.load_ffast('Os')
+U = ff.load_ffast('U')
 
 Os.rho = 22.59 * 100**3  # g / m3
 Os.Ma = 190.23  # g / mol

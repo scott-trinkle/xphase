@@ -229,7 +229,7 @@ wave: $\exp(i\bm{k}_0\cdot \bm{r})$, incident upon a slab of scatterers defined
 within $0 < z < z_0$:
 
 \begin{align}
-  \psiom(\bm{r}) &\approx \exp(i\bm{k}_0\cdot\bm{r}) - \frac{ik^2}{8\pi^2}\iint\mathrm{d}k_x\mathrm{d}k_y\,\frac{\exp\left[i\left(k_x x + k_y y + z\sqrt{k^2 - k_x^2 - k_y^2}\right)\right]\Gamma(\bm{k}_0, k_x, k_y)}{\sqrt{k^2-k_x^2-k_y^2}}\text{, } z > z_0.\label{eq:bornlong}\\
+  \psiom(\bm{r}) &\approx \exp(i\bm{k}_0\cdot\bm{r}) - \frac{ik^2}{8\pi^2}\iint\mathrm{d}k_x\mathrm{d}k_y\,\frac{\exp\left[i\left(k_x x + k_y y + z\sqrt{k^2 - k_x^2 - k_y^2}\right)\right]\Gamma(\bm{k}_0, k_x, k_y)}{\sqrt{k^2-k_x^2-k_y^2}}, \quad z > z_0.\label{eq:bornlong}\\
   \Gamma(\bm{k}_0, k_x, k_y) &\equiv \iiint\mathrm{d}\bm{r}'\left[1 - n_{\omega}^2(\bm{r}')\right]\exp(i\bm{k}_0\cdot\bm{r}')\text{ exp}\left[-i\left(k_x x' + k_y y' + z'\sqrt{k^2 - k_x^2 - k_y^2}\right)\right]\label{eq:gamma0}
 \end{align}
 
@@ -241,11 +241,11 @@ wave is aligned with the optical axis $z$, so we know that
 $\bm{k}_0~=~(0, 0, k)$~and $\bm{k}_0\cdot\bm{r} = kz$. First, for notational
 convenience, we define:
 \begin{align}
-  \zeta &\equiv \sqrt{k^2 - k_x^2 - k_y^2}  
+  \zeta &\equiv \sqrt{k^2 - k_x^2 - k_y^2}.
 \end{align}
 
 Since we know that $\left[1 - n_{\omega}^2(\bm{r}')\right] = 0$ outside the
-scatterer, the integral in equation~\ref{eq:gamma0} is only defined for
+scatterer, the integral in equation~\ref{eq:gamma0} is only nonzero for
 $0 < z < z_0$. We can thus write it as:
 \begin{align}
   \Gamma(k_x, k_y) &\equiv \iint \mathrm{d}x' \mathrm{d}y'\,\exp\left[-i\left(k_x x' + k_y y'\right)\right]\int_0^{z_0}\mathrm{d}z'\,\left[1 - n_{\omega}^2(x',y',z')\right]\exp\left[iz'(k - \zeta)\right].\label{eq:gamma1}
@@ -253,10 +253,10 @@ $0 < z < z_0$. We can thus write it as:
 This expression appears similar to a 2D Fourier transform of the $z$-projection
 of $\left[1 - n_{\omega}^2(x',y',z')\right]$ with respect to $x'$~and~$y'$.
 Note, however, that the $\exp\left[iz'(k-\zeta)\right]$ term in the
-$z$-projection couples the two conjugate variabe pairs $(x', y')$ and
-($k_x, k_y$), so this is \textit{not} a Fourier transform, strictly speaking,
-and will have to be integrated numerically. For compactness, we represent the
-action of equation~\ref{eq:gamma1} with the operator $\mathcal{A}_k$, where
+$z$-projection couples the two conjugate variable pairs $(x', y')$ and
+($k_x, k_y$), so this is \textit{not} a Fourier transform, strictly speaking. For
+compactness, we represent the action of equation~\ref{eq:gamma1} with the
+operator $\mathcal{A}_k$, where
 \begin{align}
   \mathcal{A}_k n_{\omega}(x,y,z) \equiv \Gamma(k_x, k_y) =\iint \mathrm{d}x \mathrm{d}y\,\exp\left[-i\left(k_x x + k_y y\right)\right]\int_0^{z_0}\mathrm{d}z\,\left[1 - n_{\omega}^2(x,y,z)\right]\exp\left[iz(k - \zeta)\right].
 \end{align}
@@ -268,7 +268,7 @@ conventions used in these notes are given in Appendix~\ref{Fourier}). The whole
 expression for the wave-field at some plane $z > z_0$ can thus be written
 compactly as
 \begin{align}
-  \psiom(x,y,z) \approx \exp(ikz) - \frac{ik^2}{4\pi}\mathcal{F}^{-1}\left[\frac{\exp\left(iz\zeta\right)}{\zeta}\right]\mathcal{A}_k n_{\omega}(x,y,z)\text{, } z > z_0,
+  \psiom(x,y,z) \approx \exp(ikz) - \frac{ik^2}{4\pi}\mathcal{F}^{-1}\left[\frac{\exp\left(iz\zeta\right)}{\zeta}\right]\mathcal{A}_k n_{\omega}(x,y,z),\quad z > z_0,
   \label{eq:firstbornapproximation}
 \end{align}
 where cascaded operators act from right to left. This can be used to solve for
@@ -338,7 +338,7 @@ angular spectrum formalism. Assuming all wave components are
 $z=z_0$, we can calculate the diffracted wave-field at plane $z=z_0 + \Delta$ with
 \begin{align}
   \label{eq:propagated}
-  \psiom(x,y,z=z_0 + \Delta) &= \mathcal{D}_{\Delta}\psiom(x,y,z=z_0) \text{,  } \Delta \ge 0
+  \psiom(x,y,z=z_0 + \Delta) &= \mathcal{D}_{\Delta}\psiom(x,y,z=z_0), \quad \Delta \ge 0
 \end{align}
 where
 \begin{align}
@@ -464,7 +464,7 @@ free space from the exit plane $z=z_0$ to the detector plane $z=z_0 + \Delta$.
 This could take the form of equations~\ref{eq:freespace} (exact
 solution),~\ref{eq:fresnel} (Fresnel), or~\ref{eq:fraunhofer} (Fraunhofer),
 depending on various approximations discussed previously. The intensity is then
-detected as the complex modulus of the wave-field at the detector plane,
+detected as the absolute square of the wave-field at the detector plane,
 integrated over the acquisition time. Note that while this analysis was
 performed with respect to an incoming monochromatic wave, the results can easily
 be extended to a polychromatic wave-field by modeling the frequency-dependent
@@ -554,6 +554,6 @@ Note that in these notes I am using the same convention as Paganin for the
 \end{align}
 
 \bibliographystyle{ieeetr}
-\bibliography{forward_model}
+\bibliography{forward_model_notes}
 
 \end{document}
