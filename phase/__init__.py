@@ -1,1 +1,1 @@
-from ffast import load_ffast
+from .ffast import load_ffast
